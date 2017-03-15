@@ -36,7 +36,7 @@ class Checker(object):
     def mavlink_from_cb(self, msg):
         ids = (msg.sysid, msg.compid)
         if ids in self.message_sources:
-            self.message_sources[ids].add(msg.msgid)
+            self.message_sources[ids].add_quadcopter(msg.msgid)
         else:
             self.message_sources[ids] = set((msg.msgid, ))
 
